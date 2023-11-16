@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    
+}
+.wrapper {
+    /* width: 100%;
+    height: 100%; */
+    background-image: url("./image/security.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+header {
+    background-color: #f0eaea;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #000000;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+main {
+    padding: 20px;
+}
+
+.container {
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+h2 {
+    color: #ebebeb;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 5px;
+    color: rgb(0, 0, 0);
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #000000;
+    color: white;
+}
+
+#prediction {
+    margin-top: 20px;
+}

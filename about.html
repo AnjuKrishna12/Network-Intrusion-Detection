@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .wrapper {
+        background: url('../static/image/security.avif');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #ffffff;
+    }
+
+    .header {
+        background-color: #00000024;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        color: white;
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: 900;
+    }
+
+    .title h2 {
+        font-weight: 900;
+    }
+
+    p {
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .main {
+        padding: 20px;
+    }
+
+    .container {
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+    }
+
+    h2 {
+        color: #ebebeb;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 5px;
+        color: rgb(0, 0, 0);
+        border: 1px solid #ccc;
+    }
+    .btns{
+        padding: 20PX 0PX 0PX;
+        display: flex;
+        justify-content: center;
+    }
+    .btns label{
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        background-color: #1486c387;
+        color: white;
+    }
+    button {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        background-color: #1486c387;
+        color: white;
+    }
+        /* Back button styling */
+        .back-button {
+        margin-top: 20px;
+    }
+
+    
+    #prediction {
+        margin-top: 20px;
+        color: white; /* Added text color for better visibility */
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Network Intrusion Detection System (NIDS)</h1>
+            <p>A real-time intrusion detection system for network security.</p>
+        </div>
+        <div class="main">
+            <div class="container">
+                <div class="main-wrapper">
+                    
+                        <!-- Back button -->
+                        <a class="back-button" href='4'>&lt; Back</a>
+                    <div class="title text-center">
+                        
+        
+                        <h2>Predict Network Intrusions</h2>
+                        <p>Enter the hacking parameters to predict the type of attack.</p>
+                    </div>
+                    <form action="{{ url_for('predict') }}" method="post">
+                        
+                        <div class="row mb-1">
+                            
+                                
+                                <div class="col-3">
+                                    <label for="dttl">dttl:</label>
+                                    <input type="text" id="dttl" name="dttl" required>
+                                </div>
+                            
+                            <div class="col-3">
+                                <label for="sttl">sttl:</label>
+                                <input type="text" id="sttl" name="sttl" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="swin">swin:</label>
+                                <input type="text" id="swin" name="swin" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="dwin">dwin:</label>
+                                <input type="text" id="dwin" name="dwin" required>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-3">
+                                <label for="dpkts">dpkts:</label>
+                                <input type="text" id="dpkts" name="dpkts" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="spkts">spkts:</label>
+                                <input type="text" id="spkts" name="spkts" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="dload">dload:</label>
+                                <input type="text" id="dload" name="dload" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="ct_dst_src_ltm">ct_dst_src_ltm:</label>
+                                <input type="text" id="ct_dst_src_ltm" name="ct_dst_src_ltm" required>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-3">
+                                <label for="dloss">dloss:</label>
+                                <input type="text" id="dloss" name="dloss" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="ct_src_dport_ltm">ct_src_dport_ltm:</label>
+                                <input type="text" id="ct_src_dport_ltm" name="ct_src_dport_ltm" required>
+
+                            </div>
+                            <div class="col-3">
+                                <label for="ct_dst_sport_ltm">ct_dst_sport_ltm:</label>
+                                <input type="text" id="ct_dst_sport_ltm" name="ct_dst_sport_ltm" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="stcpb">stcpb:</label>
+                                <input type="text" id="stcpb" name="stcpb" required>
+
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-3">
+                                <label for="dtcpb">dtcpb:</label>
+                                <input type="text" id="dtcpb" name="dtcpb" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="ct_srv_dst">ct_srv_dst:</label>
+                                <input type="text" id="ct_srv_dst" name="ct_srv_dst" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="ct_srv_src">ct_srv_src:</label>
+                                <input type="text" id="ct_srv_src" name="ct_srv_src" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="dbytes">dbytes:</label>
+                                <input type="text" id="dbytes" name="dbytes" required>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-3">
+                                <label for="ct_dst_ltm">ct_dst_ltm:</label>
+                                <input type="text" id="ct_dst_ltm" name="ct_dst_ltm" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="ct_src_ltm">ct_src_ltm:</label>
+                                <input type="text" id="ct_src_ltm" name="ct_src_ltm" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="sloss">sloss:</label>
+                                <input type="text" id="sloss" name="sloss" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="dmean">dmean:</label>
+                                <input type="text" id="dmean" name="dmean" required>
+                            </div>
+                        </div>
+                        <div class="btns">
+                            
+                            <label>Predict using model :</label>
+                            
+                            <button type="submit" name="model" value="model2">Random Forest</button>
+                            <button type="submit" name="model" value="model1">Decision Tree</button>
+                            
+                        </div>
+                    </form>
+                    
+                </div>
+                </div>
+                <div id="prediction"></div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2023 Network Intrusion Detection System (NIDS)</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
